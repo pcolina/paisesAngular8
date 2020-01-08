@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PaisesService } from "../services/paises.service";
+import { PaisesService, Pais } from "../services/paises.service";
 
 @Component({
   selector: 'app-paises',
@@ -7,9 +7,19 @@ import { PaisesService } from "../services/paises.service";
 })
 export class PaisesComponent implements OnInit {
 
-  constructor( _paisesService:PaisesService ) { }
+   paises: Pais[] = [];
+
+  // tslint:disable-next-line: variable-name
+  constructor( private  _paisesService: PaisesService ) {
+    console.log("Constructor");
+    
+   }
 
   ngOnInit() {
+    console.log("ngoninit");
+    this.paises = this._paisesService.getPaises();
+    console.log(this.paises);
+    
   }
 
 }
