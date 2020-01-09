@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PaisesComponent } from './components/paises/paises.component';
 import { ɵNgClassR2Impl } from '@angular/common';
+import { PaisComponent } from './components/pais/pais.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ɵNgClassR2Impl } from '@angular/common';
     NavbarComponent,
     HomeComponent,
     AboutComponent,
-    PaisesComponent
+    PaisesComponent,
+    PaisComponent
   ],
   imports: [
     BrowserModule,

@@ -68,6 +68,10 @@ export class PaisesService {
     getPaises(): Pais[]{
         return this.paises;
     }
+
+    getPais(idx: string): Pais[]{
+        return this.paises[idx];
+    }
  
 
   

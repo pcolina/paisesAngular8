@@ -1,0 +1,29 @@
+<h1>{{ pais.nombre }}</h1>
+<hr><br>
+<div>
+    <div>
+        <img [src]="pais.img" [alt]="pais.nombre">
+        <br><br>
+
+
+    </div>
+</div>
+
+
+<div>
+    <h4>Capital: <small> {{ pais.capital }} </small></h4>
+    <h4>Divisa: <small> {{ pais.moneda }}  </small></h4>
+    <h4>Visado: <small> {{ pais.visa }}  </small></h4>
+    <hr><br>
+    <h3>Destinos más populares </h3>
+    <p> {{ pais.lugares }}</p>
+    <hr>
+
+    <br>
+    <h3>Historia </h3>
+    <p> {{ pais.bio }}</p>
+
+    <br><br><br>
+    <a [routerLink]="['/paises']" class="btn-outline-primary">
+        << Volver </a>
+</div>

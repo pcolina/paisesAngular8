@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PaisesService, Pais } from "../services/paises.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-paises',
@@ -10,7 +11,8 @@ export class PaisesComponent implements OnInit {
    paises: Pais[] = [];
 
   // tslint:disable-next-line: variable-name
-  constructor( private  _paisesService: PaisesService ) {
+  constructor( private  _paisesService: PaisesService,
+               private router:Router) {
     console.log("Constructor");
     
    }
@@ -22,4 +24,7 @@ export class PaisesComponent implements OnInit {
     
   }
 
+  verPais( idx: number){
+    this.router.navigate (['pais/', idx] );
+  }
 }

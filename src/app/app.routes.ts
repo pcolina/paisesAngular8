@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PaisesComponent } from "./components/paises/paises.component";
+import { PaisComponent } from "./components/pais/pais.component";
 
 
 
@@ -9,6 +10,7 @@ const ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'paises', component: PaisesComponent },
     { path: 'about', component: AboutComponent },
+    { path: 'pais/:id', component: PaisComponent },
     { path: '**', pathMatch:'full', redirectTo: 'home' }
 ];
 
