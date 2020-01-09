@@ -28,7 +28,7 @@ export class PaisesService {
             img: "assets/img/indonesia_flag.png",
             moneda:"Rupia Indonesia",
             capital: "Yakarta",
-            visa: "visado gratis para estancias inferiores a 30 dias. Visado previo para estancia de hasta tres meses",
+            visa: "Visado gratis para estancias inferiores a 30 dias. Visado previo para estancia de hasta tres meses",
             lugares: "Bali, Parque nacional de komodo, templos de Borodudur y Prambanan, Parque Marino de Bunaken y Raja Ampat, sumatra, Tana Toraja"
            },
           {
@@ -42,10 +42,10 @@ export class PaisesService {
            },
           {
             nombre: "Tailandia",
-            bio: "El país mas típico y turistico del sudeste. grandes playas y grandes selvas. Un pais que no deja indiferente.",
+            bio: "El país mas visitado y turistico del sudeste. grandes playas y grandes selvas. Un pais que no deja indiferente.",
             img: "assets/img/tailandia_flag.png",
             moneda:"Baht tailandes",
-            capital: "Bangkok",
+            capital: "Bangkog",
             visa: "Visa gratuita para tres meses",
             lugares: "Bankog, Chiang mai, Pai, Chiang Rai, Ayutthaya, Kanchanaburi y su famoso puente sobre el rio Kwai, Koh thao, isla Phi Phi"
           },
