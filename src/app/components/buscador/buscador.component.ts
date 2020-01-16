@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BuscadorComponent implements OnInit {
 
   paises: Pais[] = [];
+  terminoBusqueda:string;
 
   constructor( private  _paisesService: PaisesService, private activatedRoute: ActivatedRoute) {
   
@@ -17,6 +18,7 @@ export class BuscadorComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe( params =>{
       console.log(params['term']);
+      this.terminoBusqueda = params['term'];
       this.paises = this._paisesService.buscarPais(params['term']);
       
     })

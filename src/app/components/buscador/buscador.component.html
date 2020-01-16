@@ -1,6 +1,12 @@
 <h1> <small>Resultados de Busqueda </small>Asia</h1>
 <hr>
 
+<div class="row" *ngIf="paises.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">No existen resultados con el término: {{ terminoBusqueda }}</div>
+    </div>
+
+</div>
 <div class="card-columns">
 
     <div class="card  animated fadeIn" *ngFor="let pais of paises; let i =index">
