@@ -25,6 +25,6 @@ export class PaisesComponent implements OnInit {
   }
 
   verPais( idx: number){
-    this.router.navigate (['pais/', idx] );
+    this.router.navigate (['/pais', idx] );
   }
 }

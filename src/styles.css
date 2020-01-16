@@ -1,6 +1,13 @@
-body{
+body {
     padding-bottom: 50px;
 }
+
+.img-flag {
+    width: 300px;
+    padding-right: 10px;
+    border: 3px;
+}
+
 
 /* animaciones */
 

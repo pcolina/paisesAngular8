@@ -14,8 +14,9 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PaisesComponent } from './components/paises/paises.component';
-import { ɵNgClassR2Impl } from '@angular/common';
 import { PaisComponent } from './components/pais/pais.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
+import { ɵNgClassR2Impl } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PaisComponent } from './components/pais/pais.component';
     HomeComponent,
     AboutComponent,
     PaisesComponent,
-    PaisComponent
+    PaisComponent,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,

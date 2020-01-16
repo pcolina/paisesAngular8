@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { timingSafeEqual } from 'crypto';
 
 @Injectable()
 export class PaisesService {
@@ -73,7 +74,25 @@ export class PaisesService {
         return this.paises[idx];
     }
  
+    buscarPais(term1:string): Pais[] {
+     
+      //let termAux =term1.toLowerCase();
+     //var  busq = this.getPaises().filter(elem => elem.nombre.toLowerCase().indexOf('term1') > -1); 
+     //console.log(busq);
+    
+     let paisesArr:Pais[] = [];
+     for (let pais of this.paises){
+      if (pais.nombre.toLowerCase().indexOf( term1) > -1){
+        console.log(term1+" existe en "+ pais.nombre);
+        paisesArr.push(pais)
 
+      }
+    }
+     
+      return paisesArr;
+
+    
+  }
   
 }
 
