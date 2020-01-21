@@ -1,0 +1,155 @@
+<h1>Tramite su visado de forma rápida a cualquier pais</h1>
+<hr>
+<br>
+<br>
+<h3>DATOS PERSONALES</h3>
+<hr>
+<form (submit)="submit()" [formGroup]="registerForm">
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+        </div>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="inputName" formControlName="nombre" #nombre required>
+        </div>
+        <div *ngIf="nombre.error" class="alert alert-danger"> Nombre es obligatorio</div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        </div>
+        <div class="col-sm-8">
+            <input type="email" class="form-control" id="inputEmail3" formControlName="email">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <label for="inputState">Tipo Documento</label>
+        </div>
+        <div class="col-sm-2">
+            <select id="inputState" class="form-control" formControlName="tipoDoc">
+          <option selected>Selecciona...</option>
+          <option *ngFor="let ltipoDoc of tiposDoc; let i =index">{{ ltipoDoc }}</option> 
+        </select>
+        </div>
+        <div class="col-sm-3">
+            <label for="inputState">Nº Documento</label>
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" id="inputNumDoc" formControlName="numDoc">
+        </div>
+    </div>
+
+    <br>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <label for="inputState">Pais de nacimiento</label>
+        </div>
+        <div class="col-sm-2">
+            <select id="inputState" class="form-control" #paisNac (change)=getProvincias(paisNac.value) formControlName="paisNac">
+          <option selected>selecciona...</option>
+          <option *ngFor="let lpais of paisesList; let i =index">{{ lpais }}</option> 
+        </select>
+        </div>
+
+        <div class="col-sm-3">
+            <label for="inputState">Provincia, Estado, etc...</label>
+        </div>
+        <div class="col-sm-3 ">
+            <select id="inputState" class="form-control" ng-disabled="provinciasList.size== ''" formControlName="prov">
+          <option *ngFor="let lprov of provinciasList; let i =index">{{ lprov }}</option> 
+          
+        </select>
+        </div>
+
+    </div>
+
+
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <label for="inputState">Prefijo</label>
+        </div>
+        <div class="col-sm-2">
+            <select id="inputState" class="form-control" ng-disabled="true" formControlName="prefijo">
+        <option selected>Choose...</option>
+        <option>...</option>
+        </select>
+        </div>
+
+        <div class="col-sm-2">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Teléfono</label>
+        </div>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="inputPassword3" formControlName="nombre">
+        </div>
+
+    </div>
+
+
+    <br>
+    <h3>DATOS VISADO</h3>
+    <hr>
+    <br>
+
+    <div class="form-group row">
+
+        <div class="col-sm-4">
+            <label for="visadoSol">Pais a solicitar visado</label>
+        </div>
+        <div class="col-sm-4">
+            <select id="inputState" class="form-control" formControlName="paisVisa">
+                <option selected>Selecciona pais ...</option>
+                    <option *ngFor="let paisv of paisesVisa; let i =index">{{ paisv.nombre }}</option> 
+             </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <label for="visadoSol">Tipo de visado</label>
+        </div>
+        <div class="col-sm-3">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Negocios
+            </label>
+        </div>
+        <div class="col-sm-3">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Estudiante
+            </label>
+        </div>
+        <div class="col-sm-3">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+            <label class="form-check-label" for="exampleRadios3">
+              Turismo
+            </label>
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">Modalidad</div>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="EUnica">
+                <label class="form-check-label" for="gridCheck1">
+            Entrada Unica
+          </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="EMultiple">
+                <label class="form-check-label" for="gridCheck1">
+           Multientrada
+          </label>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="form-group row">
+        <div class="col col-centrada">
+            <button type="submit" class="btn btn-primary">Solicitar</button>
+        </div>
+    </div>
+</form>

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Rutas
 import { APPROUTING } from "./app.routes";
@@ -7,6 +8,7 @@ import { APPROUTING } from "./app.routes";
 
 // Servicios
 import { PaisesService } from "./components/services/paises.service";
+import { FormularioService } from "./components/services/formulario.service";
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -17,6 +19,7 @@ import { PaisesComponent } from './components/paises/paises.component';
 import { PaisComponent } from './components/pais/pais.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { ɵNgClassR2Impl } from '@angular/common';
+import { VisadoFormComponent } from './components/visado-form/visado-form.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +29,21 @@ import { ɵNgClassR2Impl } from '@angular/common';
     AboutComponent,
     PaisesComponent,
     PaisComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    VisadoFormComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     APPROUTING
 
   ],
-  providers: [PaisesService],
+  providers: [
+    PaisesService,
+    FormularioService
+  ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
