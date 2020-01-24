@@ -37,3 +37,16 @@ body {
 .fadeIn {
     animation-name: fadeIn;
 }
+
+.error {
+    color: crimson;
+    text-decoration-color: crimson;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex>p {
+    margin-left: 0;
+}

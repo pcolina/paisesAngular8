@@ -3,11 +3,16 @@ import { FormularioService } from "../services/formulario.service";
 import { PaisesService } from "../services/paises.service";
 import { Router } from "@angular/router";
 
-import { FormBuilder, ReactiveFormsModule, Validators  } from "@angular/forms"
+import { NgForm  } from "@angular/forms"
 
 @Component({
   selector: 'app-visado-form',
-  templateUrl: './visado-form.component.html'
+  templateUrl: './visado-form.component.html',
+  styles: [`
+  .ng-invalid.ng-touched:not(form) {
+    border: 1px solid red;
+  }
+  `]
 })
 export class VisadoFormComponent implements OnInit {
 //definicion de constantes
@@ -19,33 +24,27 @@ export class VisadoFormComponent implements OnInit {
    tiposDoc = [];
    paisesList = [];
    provinciasList = [];
-
+   prefijosList = [];
    paisesVisa = [];
+  error: boolean;
+  
+  //validaciones num documento DNI: 9 00000000A | NIE: 9 A0000000A |Pasaporte: 10 AAA000000A
+  minLenNumDoc: string ="9";
+  maxLenNumDoc: string ="9";
+  patternNumDoc: string ="";
 
-  constructor(private formBuilder: FormBuilder, 
+
+
+  constructor( 
     private  _formularioService: FormularioService,
     private  _paisesService: PaisesService,
     private router:Router) { 
 
+     
     }
 
-    registerForm = this.formBuilder.group({
-      
-
-      nombre: ['', Validators.required ],
-      email: ['', Validators.required ],
-      tipoDoc: [''],
-      numDoc: [''],
-      paisNac: [''],
-      prov: [''],
-      prefijo: [''],
-      telefono: [''],
-      paisVisa: [''],
-      tipoVisa: [''],
-      modoVisa: [''],
-   });
   ngOnInit() {
-  
+ 
       //Cargamos los tipos de documentos
       this.tiposDoc = this._formularioService.getTipoDocu();
       // Cargamos el listado de paises
@@ -54,6 +53,11 @@ export class VisadoFormComponent implements OnInit {
 
       // Cargamos los paises en los que podemos tramitar visados
       this.paisesVisa = this._paisesService.getPaises();
+
+      //cargamos prefijos
+      this.prefijosList = this._formularioService.getprefijosList(); 
+      
+      // if this.registerForm.controls
       
     }
 
@@ -62,6 +66,41 @@ export class VisadoFormComponent implements OnInit {
         this.provinciasList = this._formularioService.getProvincias(unPais); 
         console.log("PROV: "+ this.provinciasList);
         
+      }
+
+     
+
+      validacionesDoc(tipoDoc: string ){
+        console.log("tipodoc ", tipoDoc);
+  switch (tipoDoc) {
+    case "DNI":{
+      ///^[XYZ]?\d{5,8}[A-Z]$/;
+      //(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))
+      this.patternNumDoc = "[0-9]{8}([A-Z]|[a-z]){1}$";
+      
+      break;
+    }  
+     case "NIE":{
+      this.patternNumDoc =  "([A-Z]|[a-z]){1}[0-9]{5,8}([A-Z]|[a-z]){1}$";
+      break;
+    }
+
+    
+    case "Pasaporte":{
+      console.log("pasaporte seleccionado");
+      
+      this.minLenNumDoc = "10";
+      this.maxLenNumDoc = "10";
+      this.patternNumDoc = "([A-Z]|[a-z]){3}[0-9]{6}([A-Z]|[a-z])?$";
+      break;
+    }
+
+    default: {
+      console.log("Tipo de decumento erroneo");
+      break;
+    }
+      
+  }
       }
        
 
@@ -74,8 +113,16 @@ export class VisadoFormComponent implements OnInit {
        // Es posible que tenga que crear objeto PaisVisado con atributos como tipologia de visados, modos de visado  y precios      
  
 
-       submit(){
-         console.log(this.registerForm.value);
+       submit(forma: NgForm){
+         let errorTxt:string ="";
+         console.log("Submit llamado");
+         console.log( forma );
+         
+        //  if (this.registerForm.controls.nombre.status === 'INVALID'){
+        //    this.error = true;
+           
+        //  }
+        
          
        }
 

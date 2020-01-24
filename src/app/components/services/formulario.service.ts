@@ -6,18 +6,19 @@ import { ResourceLoader } from '@angular/compiler';
 export class FormularioService {
 
     private paisesList: string[] = [ "Germany",  "Spain",  "United States"];
+    private prefijoTelList: string[] = [ "(00)49",  "(00)34",  "(00)1"];
 
 private provinciasEspList: string[] = ["Alava", "Albacete", "Alicante", "Almeria", "Asturias", "Avila", "Barcelona", "Madrid"];
 private provinciasUSAList: string[] = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Carolina del Norte", "BaCarolina del Sur"];
 
-private tipoDoc:String[] = ["DNI","Pasaporte"];
+private tipoDoc: string[] = ["DNI","NIE","Pasaporte"];
 
     constructor() { 
 
         console.log("Servicio listo para usarse");
     }
 
-    getTipoDocu():string[]{
+    getTipoDocu(): string[] {
         return this.tipoDoc;
     }
    
@@ -27,6 +28,9 @@ private tipoDoc:String[] = ["DNI","Pasaporte"];
         return this.paisesList;
     } 
 
+    getprefijosList(): string[]{
+        return this.prefijoTelList;
+    }
     getProvincias(paisN:string){
         console.log("PAIS:  "+paisN);
         ;

@@ -4,84 +4,101 @@
 <br>
 <h3>DATOS PERSONALES</h3>
 <hr>
-<form (submit)="submit()" [formGroup]="registerForm">
-    <div class="form-group row">
+<form (ngSubmit)="submit(forma)" #forma="ngForm" novalidate="">
+    <div class="form-group row flex">
         <div class="col-sm-2">
-            <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+            <label for="nombre" class="col-sm-2 col-form-label flex">Nombre&nbsp;<p class="error">*</p>  </label>
         </div>
         <div class="col-sm-8">
-            <input type="text" class="form-control" id="inputName" formControlName="nombre" #nombre required>
+            <input type="text" class="form-control" name="nombre" ngModel minlength="5" required #nombre="ngModel">
         </div>
-        <div *ngIf="nombre.error" class="alert alert-danger"> Nombre es obligatorio</div>
+        <!-- <div class="col-sm-8">
+        </div> -->
+        <div *ngIf="!nombre.untouched && nombre.errors?.required" class="alert error"> El campo nombre es obligatorio</div>
+        <div *ngIf="!nombre.untouched && nombre.errors?.minlength" class="alert error"> El tamaño minimo para el campo nombre es de {{ nombre.errors.minlength.requiredLength}}</div>
     </div>
     <div class="form-group row">
         <div class="col-sm-2">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <label for="inputEmail3" class="col-sm-2 col-form-label flex">Email&nbsp;<p class="error">*</p></label>
         </div>
         <div class="col-sm-8">
-            <input type="email" class="form-control" id="inputEmail3" formControlName="email">
+            <input type="email" class="form-control" id="inputEmail3" name="email" #email="ngModel" ngModel pattern="[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" required>
         </div>
+        <div *ngIf="!email.untouched && email.errors?.required" class="alert error"> El campo email es obligatorio</div>
+        <div *ngIf="!email.untouched && email.errors?.pattern" class="alert error"> El campo email tiene formato erroneo</div>
+
     </div>
     <div class="form-group row">
         <div class="col-sm-2">
-            <label for="inputState">Tipo Documento</label>
+            <label for="inputState" class=" flex">Tipo Documento&nbsp;<p class="error">*</p></label>
         </div>
         <div class="col-sm-2">
-            <select id="inputState" class="form-control" formControlName="tipoDoc">
+            <select id="inputState" class="form-control" name="tipoDoc" #tipoDoc="ngModel" ngModel required (change)=validacionesDoc(tipoDoc.value)>
           <option selected>Selecciona...</option>
           <option *ngFor="let ltipoDoc of tiposDoc; let i =index">{{ ltipoDoc }}</option> 
         </select>
+
         </div>
         <div class="col-sm-3">
-            <label for="inputState">Nº Documento</label>
+            <label for="inputState" class=" flex">Nº Documento&nbsp;<p class="error">*</p></label>
         </div>
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="inputNumDoc" formControlName="numDoc">
+            <input type="text" class="form-control" id="inputNumDoc" name="numDoc" #numDoc="ngModel" ngModel required [minlength]="minLenNumDoc" [maxlength]="maxLenNumDoc" [pattern]="patternNumDoc">
         </div>
+        <div *ngIf="!tipoDoc.untouched && tipoDoc.errors?.required" class="alert error"> El campo tipo documento es obligatorio</div>
+        <div *ngIf="!tipoDoc.untouched && tipoDoc.errors?.required" class="alert error"> El campo tipo documento es obligatorio</div>
+        <div *ngIf="!numDoc.untouched && numDoc.errors?.required" class="alert error"> El campo número de documento es obligatorio</div>
+        <div *ngIf="!numDoc.untouched && numDoc.errors?.pattern" class="alert error"> El campo número de documento tiene formato erroneo</div>
+
     </div>
 
     <br>
     <div class="form-group row">
         <div class="col-sm-2">
-            <label for="inputState">Pais de nacimiento</label>
+            <label for="inputState" class=" flex">Pais de nacimiento&nbsp;<p class="error">*</p></label>
         </div>
         <div class="col-sm-2">
-            <select id="inputState" class="form-control" #paisNac (change)=getProvincias(paisNac.value) formControlName="paisNac">
+            <select id="inputState" class="form-control" #paisNac (change)=getProvincias(paisNac.value) name="paisNac" ngModel required>
           <option selected>selecciona...</option>
           <option *ngFor="let lpais of paisesList; let i =index">{{ lpais }}</option> 
         </select>
         </div>
+        <div *ngIf="!paisNac.untouched && paisNac.errors?.required" class="alert error"> El campo pais es obligatorio</div>
 
         <div class="col-sm-3">
-            <label for="inputState">Provincia, Estado, etc...</label>
+            <label for="inputState" class=" flex" minlength="4">Provincia, Estado, etc...&nbsp;<p class="error">*</p></label>
         </div>
         <div class="col-sm-3 ">
-            <select id="inputState" class="form-control" ng-disabled="provinciasList.size== ''" formControlName="prov">
+            <select id="inputState" class="form-control" ng-disabled="provinciasList.size== ''">
           <option *ngFor="let lprov of provinciasList; let i =index">{{ lprov }}</option> 
           
         </select>
         </div>
+        <div *ngIf="!tipoDoc.untouched && tipoDoc.errors?.required" class="alert error"> El campo tipo documento es obligatorio</div>
 
     </div>
 
 
     <div class="form-group row">
         <div class="col-sm-2">
-            <label for="inputState">Prefijo</label>
+            <label for="inputState" class=" flex">Prefijo&nbsp;<p class="error">*</p></label>
         </div>
         <div class="col-sm-2">
-            <select id="inputState" class="form-control" ng-disabled="true" formControlName="prefijo">
+            <select id="inputState" class="form-control" ng-disabled="true">
         <option selected>Choose...</option>
-        <option>...</option>
+        <option *ngFor="let pref of prefijosList; let i =index">{{ pref }}</option> 
+          
         </select>
         </div>
 
         <div class="col-sm-2">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Teléfono</label>
+            <label for="inputPassword3" class="col-sm-2 col-form-label flex">Teléfono&nbsp;<p class="error">*</p></label>
         </div>
         <div class="col-sm-4">
-            <input type="text" class="form-control" id="inputPassword3" formControlName="nombre">
+            <input type="text" class="form-control" id="inputPassword3" name="tel" #tel="ngModel" ngModel required minlength="9" maxlength="10" required>
         </div>
+        <div *ngIf="!tel.untouched && tel.errors?.required" class="alert error"> El campo teléfono es obligatorio</div>
+        <div *ngIf="!tel.untouched && (tel.errors?.minlength ||tel.errors?.maxlength )" class="alert error"> El formato del telefono es incorrecto</div>
 
     </div>
 
@@ -97,7 +114,7 @@
             <label for="visadoSol">Pais a solicitar visado</label>
         </div>
         <div class="col-sm-4">
-            <select id="inputState" class="form-control" formControlName="paisVisa">
+            <select id="inputState" class="form-control">
                 <option selected>Selecciona pais ...</option>
                     <option *ngFor="let paisv of paisesVisa; let i =index">{{ paisv.nombre }}</option> 
              </select>
@@ -148,7 +165,7 @@
     <br>
 
     <div class="form-group row">
-        <div class="col col-centrada">
+        <div class="col col-6">
             <button type="submit" class="btn btn-primary">Solicitar</button>
         </div>
     </div>
