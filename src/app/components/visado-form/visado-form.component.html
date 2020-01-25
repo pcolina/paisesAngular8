@@ -116,7 +116,9 @@
         <div class="col-sm-4">
             <select id="inputState" class="form-control">
                 <option selected>Selecciona pais ...</option>
-                    <option *ngFor="let paisv of paisesVisa; let i =index">{{ paisv.nombre }}</option> 
+                    <option *ngFor="let paisv of paisesVisa; let i =index" [selected]="paisv.nombre  ==  paisVisa" [value]="paisv.nombre">
+                        {{ paisv.nombre }}
+                    </option> 
              </select>
         </div>
     </div>

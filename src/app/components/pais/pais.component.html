@@ -22,7 +22,10 @@
         <br>
         <h3>Historia </h3>
         <p> {{ pais.bio }}</p>
-
+        <br><br>
+        <button (click)="tramitarVisado(pais.nombre)" type="button" class="btn btn-outline-primary btn-block">
+            TRAMITAR VISADO
+        </button>
         <br><br><br>
         <a [routerLink]="['/paises']" class="btn-outline-primary">
             << Volver </a>

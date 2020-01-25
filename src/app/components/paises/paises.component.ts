@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PaisesService, Pais } from "../services/paises.service";
-import { Router } from "@angular/router";
+import { PaisesService, Pais } from '../services/paises.service';
+// tslint:disable-next-line: quotemark
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paises',
@@ -12,19 +13,20 @@ export class PaisesComponent implements OnInit {
 
   // tslint:disable-next-line: variable-name
   constructor( private  _paisesService: PaisesService,
-               private router:Router) {
-    console.log("Constructor");
-    
+               private router: Router) {
+    console.log('Constructor');
    }
 
   ngOnInit() {
-    console.log("ngoninit");
+    console.log('ngoninit');
     this.paises = this._paisesService.getPaises();
     console.log(this.paises);
-    
+
   }
 
-  verPais( idx: number){
+  verPais( idx: number) {
+    console.log('Ver pais : ', idx);
     this.router.navigate (['/pais', idx] );
   }
+
 }

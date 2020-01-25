@@ -15,7 +15,7 @@ const ROUTES: Routes = [
     { path: 'buscar/:term', component: BuscadorComponent },
     { path: 'pais/:id', component: PaisComponent },
     { path: 'visado-form', component: VisadoFormComponent },
-    { path: 'visado-form/:id', component: VisadoFormComponent }, //Pendiente de unificar con la opcion anterior TODO
+    { path: 'visado-form/:paisVisa', component: VisadoFormComponent }, //Pendiente de unificar con la opcion anterior TODO
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
     
 ];
