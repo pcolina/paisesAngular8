@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PaisesService, Pais } from '../services/paises.service';
-// tslint:disable-next-line: quotemark
+
 import { Router } from '@angular/router';
+// tslint:disable-next-line: quotemark
 
 @Component({
   selector: 'app-paises',
@@ -13,7 +14,7 @@ export class PaisesComponent implements OnInit {
 
   // tslint:disable-next-line: variable-name
   constructor( private  _paisesService: PaisesService,
-               private router: Router) {
+    private router: Router) {
     console.log('Constructor');
    }
 
@@ -24,9 +25,9 @@ export class PaisesComponent implements OnInit {
 
   }
 
-  verPais( idx: number) {
-    console.log('Ver pais : ', idx);
-    this.router.navigate (['/pais', idx] );
+  verPais( nombre: string) {
+    console.log('Ver pais : ', nombre);
+    this.router.navigate (['/pais', nombre] );
   }
 
 }

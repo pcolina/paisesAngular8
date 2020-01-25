@@ -78,12 +78,21 @@ export class PaisesService {
         return this.paises;
     }
 
-    getPais(idx: string): Pais[] {
-        return this.paises[idx];
+    getPais(nombre: string): Pais {
+      let result: Pais;
+      // tslint:disable-next-line: prefer-for-of
+      for ( let i = 0; i < this.paises.length; i++) {
+        
+        if (this.paises[i].nombre.includes(nombre)) {
+          result = this.paises[i];
+        }
+
+       }
+      return result;
     }
 
     buscarPais(term1: string): Pais[] {
-     const  busq = this.getPaises().filter(elem => elem.nombre.toLowerCase().indexOf(term1) > -1);
+     const  busq = this.getPaises().filter(elem => elem.nombre.toLowerCase().indexOf(term1.toLocaleLowerCase()) > -1);
      return busq;
 
   }

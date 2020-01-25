@@ -26,8 +26,8 @@ export class BuscadorComponent implements OnInit {
   }
 
 
-  verPais( idx: number){
-    console.log('Ver pais : ', idx);
-    this.router.navigate (['/pais', idx] );
+  verPais( nombre: string){
+    console.log('Ver pais : ', nombre);
+    this.router.navigate (['/pais', nombre] );
   }
 }

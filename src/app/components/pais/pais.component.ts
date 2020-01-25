@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PaisesService } from '../services/paises.service';
+import { PaisesService, Pais } from '../services/paises.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class PaisComponent  {
 
-  pais: any = {};
+  pais: Pais ;
 
   // tslint:disable-next-line: typedef-whitespace
   constructor( private router: Router,
@@ -19,8 +19,8 @@ export class PaisComponent  {
                private _paisesService: PaisesService) {
 
     this.activatedRoute.params.subscribe( params => {
-      this.pais = this._paisesService.getPais( params.id);
-      console.log(this.pais);
+      this.pais = this._paisesService.getPais( params.nombre);
+      console.log('pais::: ', this.pais);
     });
   }
 

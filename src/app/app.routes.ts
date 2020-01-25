@@ -13,7 +13,7 @@ const ROUTES: Routes = [
     { path: 'paises', component: PaisesComponent },
     { path: 'about', component: AboutComponent },
     { path: 'buscar/:term', component: BuscadorComponent },
-    { path: 'pais/:id', component: PaisComponent },
+    { path: 'pais/:nombre', component: PaisComponent },
     { path: 'visado-form', component: VisadoFormComponent },
     { path: 'visado-form/:paisVisa', component: VisadoFormComponent }, //Pendiente de unificar con la opcion anterior TODO
     { path: '**', pathMatch: 'full', redirectTo: 'home' }

@@ -20,6 +20,7 @@ import { PaisComponent } from './components/pais/pais.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { ɵNgClassR2Impl } from '@angular/common';
 import { VisadoFormComponent } from './components/visado-form/visado-form.component';
+import { PaisTarjetaComponent } from './components/pais-tarjeta/pais-tarjeta.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { VisadoFormComponent } from './components/visado-form/visado-form.compon
     PaisesComponent,
     PaisComponent,
     BuscadorComponent,
-    VisadoFormComponent
+    VisadoFormComponent,
+    PaisTarjetaComponent
   ],
   imports: [
     BrowserModule,

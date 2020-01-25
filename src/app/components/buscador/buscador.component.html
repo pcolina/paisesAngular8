@@ -9,19 +9,6 @@
 </div>
 <div class="card-columns">
 
-    <div class="card  animated fadeIn" *ngFor="let pais of paises; let i =index">
-        <img [src]="pais.img" [alt]="pais.nombre" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{ pais.nombre }}</h5>
-            <p class="card-text">Divisa: {{ pais.moneda }}</p>
-            <p class="card-text">Capital: {{ pais.capital }}</p>
-            <p class="card-text"> {{ pais.bio }}</p>
-            <button (click)="verPais(i)" type="button" class="btn btn-outline-primary btn-block">
-            Ver más...
-        </button>
-            <!--<a [routerLink]="['/pais',i]" class="btn-outline-primary"> Ver más link</a>
--->
-        </div>
-    </div>
+    <app-pais-tarjeta (paisSelec)="verPais( $event )" [pais]="pais" [nombre]="pais.nombre" *ngFor="let pais of paises; let i =index"></app-pais-tarjeta>
 
 </div>
