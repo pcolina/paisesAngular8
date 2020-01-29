@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormularioService } from '../services/formulario.service';
 import { PaisesService } from '../services/paises.service';
+import { RestService } from '../services/rest.service';
+
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -42,6 +44,7 @@ export class VisadoFormComponent implements OnInit {
               private _formularioService: FormularioService,
               // tslint:disable-next-line: variable-name
               private _paisesService: PaisesService,
+              private _restService: RestService,
               private router: Router) {
 
     this.activatedRoute.params.subscribe(params => {
@@ -58,8 +61,11 @@ export class VisadoFormComponent implements OnInit {
     this.tiposDoc = this._formularioService.getTipoDocu();
 
     // Cargamos el listado de paises
-    this.paisesList = this._formularioService.getPaisesList();
-    console.log('listado: ' + this.paisesList);
+    // This.paisesList = this._formularioService.getPaisesList();
+    // Console.log('listado: ' + this.paisesList);
+
+    //new
+    this.paisesList= this._restService.getPaisesRest();
 
     // Cargamos los paises en los que podemos tramitar visados
     this.paisesVisa = this._paisesService.getPaises();

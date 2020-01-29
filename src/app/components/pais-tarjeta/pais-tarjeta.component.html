@@ -1,7 +1,7 @@
 <div class="card  animated fadeIn">
-    <img [src]="pais.img" [alt]="pais.nombre" class="card-img-top" alt="...">
+    <img [src]="pais.img" [alt]="pais.translation.es" [class]="pais.flag">
     <div class="card-body">
-        <h5 class="card-title">{{ pais.nombre }}</h5>
+        <h5 class="card-title">{{ pais.translation.es }}</h5>
         <p class="card-text">Divisa: {{ pais.moneda }}</p>
         <p class="card-text">Capital: {{ pais.capital }}</p>
         <p class="card-text"> {{ pais.bio }}</p>

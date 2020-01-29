@@ -11,7 +11,7 @@ export class PaisTarjetaComponent implements OnInit {
   @Input() pais: any = {};
   @Input() nombre: string;
 
-  @Output() paisSelec: EventEmitter<number>;
+  @Output() paisSelec: EventEmitter<string>;
 
   constructor( private router: Router) {
 

@@ -1,14 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 // Rutas
-import { APPROUTING } from "./app.routes";
+import { APPROUTING } from './app.routes';
  
 
 // Servicios
-import { PaisesService } from "./components/services/paises.service";
-import { FormularioService } from "./components/services/formulario.service";
+import { PaisesService } from './components/services/paises.service';
+import { FormularioService } from './components/services/formulario.service';
+import { RestService } from './components/services/rest.service';
+
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -38,12 +42,14 @@ import { PaisTarjetaComponent } from './components/pais-tarjeta/pais-tarjeta.com
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     APPROUTING
 
   ],
   providers: [
     PaisesService,
-    FormularioService
+    FormularioService,
+    RestService
   ],
   
   bootstrap: [AppComponent]
