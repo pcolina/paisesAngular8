@@ -1,8 +1,8 @@
 <div class="card  animated fadeIn">
-    <img [src]="pais.img" [alt]="pais.translation.es" [class]="pais.flag">
+    <img [src]="pais.flag" [alt]="pais.name" class="img-flag-mini ml-3">
     <div class="card-body">
-        <h5 class="card-title">{{ pais.translation.es }}</h5>
-        <p class="card-text">Divisa: {{ pais.moneda }}</p>
+        <h5 class="card-title">{{ pais.translations.es }}</h5>
+        <p class="card-text">Divisa: {{ pais.currencies[0].name }} ({{ pais.currencies[0].symbol }})</p>
         <p class="card-text">Capital: {{ pais.capital }}</p>
         <p class="card-text"> {{ pais.bio }}</p>
         <button (click)="verPais()" type="button" class="btn btn-outline-primary btn-block">

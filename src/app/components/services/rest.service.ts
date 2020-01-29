@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class RestService {
 
-    paisesRest: any[] = [];
     paises: any[] = [];
 
     constructor(private http: HttpClient) {
@@ -12,17 +11,18 @@ export class RestService {
      
     }
 
-    getPaisesRest() {
-        this.http.get('https://restcountries.eu/rest/v2/region/asia').subscribe((respu: any) => {
-            this.paisesRest = respu;
-            console.log('Respuesta getPaisesRest:inside ', respu);
-
-
-        });
-       
-        return this.paises;
-
+    getPaisesRest()  {
+       return this.http.get('https://restcountries.eu/rest/v2/regionalbloc/asean');
+        
+      
     }
+
+    // .subscribe((respu: any) => {
+    //     this.paisesRest = respu;
+    //     console.log('Respuesta getPaisesRest:inside ', respu);
+
+
+    // });
 
     etpaisesRestByRegion(reg:string){
 

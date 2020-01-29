@@ -3,6 +3,6 @@
 
 <div class="card-columns">
 
-    <app-pais-tarjeta (paisSelec)="verPais( $event )" [pais]="pais" [nombre]="pais.nombre" *ngFor="let pais of paises; let i =index"></app-pais-tarjeta>
+    <app-pais-tarjeta (paisSelec)="verPais( $event )" [pais]="pais" [nombre]="pais.translations.es" *ngFor="let pais of paisesRest; let i =index"></app-pais-tarjeta>
 
 </div>

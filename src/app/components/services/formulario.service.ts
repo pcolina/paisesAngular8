@@ -22,10 +22,10 @@ private tipoDoc: string[] = ["DNI","NIE","Pasaporte"];
         return this.tipoDoc;
     }
    
-     getPaisesList(): string[]{
+     getPaisesList(){
         //return this.paisesList;
-        console.log("getpaisesList()");
-        return this.paisesList;
+        console.log('getpaisesList() ', this.paisesList);
+       return this.paisesList;
     } 
 
     getprefijosList(): string[]{

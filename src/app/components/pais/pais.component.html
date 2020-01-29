@@ -1,34 +1,42 @@
-<h1>{{ pais.nombre | uppercase }}</h1>
-<hr><br>
-<div class="row animated fadeIn fast">
-    <div class="col-md-4 ">
-        <img [src]="pais.img" [alt]="pais.nombre" class="img-flag">
-        <br><br>
+<div *ngIf="error">
+    <h1>Lo sentimos no tenemos información de ese pais</h1>
+</div>
+<div *ngIf="!error">
 
 
-    </div>
+    <h1>{{ pais.nombre | uppercase }}</h1>
+    <hr><br>
+    <div class="row animated fadeIn fast">
+        <div class="col-md-4 ">
+            <img [src]="pais.img" [alt]="pais.nombre" class="img-flag">
+            <br><br>
+
+
+        </div>
 
 
 
-    <div class="col-md-8">
-        <h4>Capital: <small> {{ pais.capital  }} </small></h4>
-        <h4>Divisa: <small> {{ pais.moneda }}  </small></h4>
-        <h4>Visado: <small> {{ pais.visa }}  </small></h4>
-        <hr><br>
-        <h3>Destinos más populares </h3>
-        <p> {{ pais.lugares }}</p>
-        <hr>
+        <div class="col-md-8">
+            <h4>Capital: <small> {{ pais.capital  }} </small></h4>
+            <h4>Divisa: <small> {{ pais.moneda }}  </small></h4>
+            <h4>Visado: <small> {{ pais.visa }}  </small></h4>
+            <hr><br>
+            <h3>Destinos más populares </h3>
+            <p> {{ pais.lugares }}</p>
+            <hr>
 
-        <br>
-        <h3>Historia </h3>
-        <p> {{ pais.bio }}</p>
-        <br><br>
-        <button (click)="tramitarVisado(pais.nombre)" type="button" class="btn btn-outline-primary btn-block">
+            <br>
+            <h3>Historia </h3>
+            <p> {{ pais.bio }}</p>
+            <br><br>
+            <button (click)="tramitarVisado(pais.nombre)" type="button" class="btn btn-outline-primary btn-block">
             TRAMITAR VISADO
         </button>
-        <br><br><br>
-        <a [routerLink]="['/paises']" class="btn-outline-primary">
-            << Volver </a>
-    </div>
 
+        </div>
+
+    </div>
 </div>
+<br><br><br>
+<a [routerLink]="['/paises']" class="btn-outline-primary">
+    << Volver </a>

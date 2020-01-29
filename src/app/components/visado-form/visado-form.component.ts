@@ -24,7 +24,7 @@ export class VisadoFormComponent implements OnInit {
 
 
   tiposDoc = [];
-  paisesList = [];
+  paisesList: any[] = [];
   provinciasList = [];
   prefijosList = [];
   paisesVisa = [];
@@ -61,12 +61,10 @@ export class VisadoFormComponent implements OnInit {
     this.tiposDoc = this._formularioService.getTipoDocu();
 
     // Cargamos el listado de paises
-    // This.paisesList = this._formularioService.getPaisesList();
-    // Console.log('listado: ' + this.paisesList);
+     this.paisesList = this._formularioService.getPaisesList();
+     // Console.log('listado: ' + this.paisesList);
 
-    //new
-    this.paisesList= this._restService.getPaisesRest();
-
+    
     // Cargamos los paises en los que podemos tramitar visados
     this.paisesVisa = this._paisesService.getPaises();
 

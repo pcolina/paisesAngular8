@@ -22,6 +22,8 @@ export class PaisTarjetaComponent implements OnInit {
   }
 
   verPais() {
+    console.log('NOMBRE ', this.nombre);
+    
     this.paisSelec.emit( this.nombre);
   }
 
