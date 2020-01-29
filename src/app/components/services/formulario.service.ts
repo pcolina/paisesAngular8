@@ -5,7 +5,7 @@ import { ResourceLoader } from '@angular/compiler';
 @Injectable()
 export class FormularioService {
 
-    private paisesList: string[] = [ "Germany",  "Spain",  "United States"];
+    private paisesList: string[] = [ "Germany",  "Spain",  "United States", "France"];
     private prefijoTelList: string[] = [ "(00)49",  "(00)34",  "(00)1"];
 
 private provinciasEspList: string[] = ["Alava", "Albacete", "Alicante", "Almeria", "Asturias", "Avila", "Barcelona", "Madrid"];
